@@ -1,4 +1,5 @@
 from aiogram import Dispatcher, Bot
+from aiogram.client.default import DefaultBotProperties
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage, DefaultKeyBuilder
@@ -8,6 +9,8 @@ from os import getenv as env
 
 
 load_dotenv()
+
+BOT_NAME = env('BNAME')
 
 
 async def db_init(gen_sch: bool = False):
@@ -20,6 +23,6 @@ async def db_init(gen_sch: bool = False):
 
 
 sess = AiohttpSession()
-bt = Bot(token=env('BT'), session=sess, parse_mode=ParseMode.MARKDOWN_V2)
+bt = Bot(token=env('BT'), session=sess, default=DefaultBotProperties(parse_mode=ParseMode.MARKDOWN_V2))
 storage = RedisStorage.from_url(env('REDIS_DSN'), key_builder=DefaultKeyBuilder(with_destiny=True))
 dp = Dispatcher(storage=storage)

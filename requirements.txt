@@ -1,4 +1,4 @@
-aiogram_dialog
+aiogram_dialog[tools]
 asyncpg
 python-dotenv
 redis

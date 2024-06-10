@@ -7,7 +7,7 @@
    <img width="244" alt="Screenshot" src="https://github.com/mixartemev/adtt/assets/5181924/2fc5a505-09c2-418a-9e5d-5f36ed172118">
 2) Install dependencies:
    ```bash
-   pip install -U --pre -r requirements.txt`
+   pip install -U --pre -r requirements.txt
    ```
 
 ###### SETUP
