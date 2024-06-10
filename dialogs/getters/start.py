@@ -3,6 +3,7 @@ from aiogram_dialog import DialogManager
 from aiogram.types import User as TgUser
 
 from db.models import User
+from loader import BOT_NAME
 
 
 async def get_start(dialog_manager: DialogManager, state: FSMContext, **kwargs):
@@ -21,5 +22,5 @@ async def get_deeplink(dialog_manager: DialogManager, _: FSMContext):
     data = dialog_manager.current_context().dialog_data
     return {
         'nick': data["opponent_nick"],
-        'link': f'https://t.me/InfiniChatBot?start={user.id}',
+        'link': f'https://t.me/{BOT_NAME}?start={user.id}',
     }
